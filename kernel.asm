@@ -94,27 +94,71 @@ read_command:
 
 execute_command:
     mov si, command_buffer
-    cmp byte [si], 'h'
-    cmp byte [si+1], 'e'
-    cmp byte [si+2], 'l'
-    cmp byte [si+3], 'p'
+    ; Проверка команды "help"
+    mov di, help_str
+    call compare_strings
     je do_help
-    cmp byte [si], 'c'
-    cmp byte [si+1], 'l'
-    cmp byte [si+2], 's'
+
+    mov si, command_buffer
+    ; Проверка команды "cls"
+    mov di, cls_str
+    call compare_strings
     je do_cls
-    cmp byte [si], 's'
-    cmp byte [si+1], 'h'
-    cmp byte [si+2], 'u'
-    cmp byte [si+3], 't'
+
+    mov si, command_buffer
+    ; Проверка команды "shut"
+    mov di, shut_str
+    call compare_strings
     je do_shutdown
+
+    mov si, command_buffer
+    ; Проверка команды "load"
     cmp byte [si], 'l'
     cmp byte [si+1], 'o'
     cmp byte [si+2], 'a'
     cmp byte [si+3], 'd'
     je load_program
+
+    mov si, command_buffer
+    ; Проверка команды "clock"
+    mov di, clock_str
+    call compare_strings
+    je start_clock
+
+    mov si, command_buffer
+    ; Проверка команды "BASIC"
+    mov di, basic_str
+    call compare_strings
+    je start_BASIC
+
     call unknown_command
     ret
+
+compare_strings:
+    ; si - указатель на вводимую команду
+    ; di - указатель на проверяемую команду
+    xor cx, cx
+.next_char:
+    lodsb                ; Загружаем следующий символ из команды пользователя
+    cmp al, [di]        ; Сравниваем с символом из команды
+    jne .not_equal       ; Если не равны, переходим к метке .not_equal
+    cmp al, 0           ; Проверяем конец строки
+    je .equal           ; Если конец строки, команды равны
+    inc di              ; Переходим к следующему символу проверяемой команды
+    jmp .next_char      ; Повторяем сравнение
+.not_equal:
+    ret                 ; Возвращаемся, если команды не равны
+.equal:
+    ret                 ; Возвращаемся, если команды равны
+
+
+help_str db 'help', 0
+cls_str db 'cls', 0
+shut_str db 'shut', 0
+load_str db 'load', 0
+clock_str db 'clock', 0
+basic_str db 'BASIC', 0
+
 
 do_banner:
     call print_interface
@@ -145,13 +189,14 @@ do_shutdown:
     mov cx, 0x0003
     int 0x15
     ret
-    
+
 load_program:
     mov si, command_buffer
-    add si, 5
+    add si, 5  ; Пропускаем "load "
 
+    xor cx, cx
     xor ax, ax
-    mov cl, 0
+
 .next_digit:
     cmp byte [si], 0
     je .done_load
@@ -160,15 +205,14 @@ load_program:
     cmp byte [si], '9'
     ja .done_load
     sub byte [si], '0'
-    mov bl, [si]
-    mov ax, ax
-    mov al, bl
+    mov ax, cx
+    mov al, [si]
     add ax, cx
-    shl cx, 1
     shl cx, 1
     add cx, ax
     inc si
     jmp .next_digit
+
 .done_load:
     call start_program
     ret
@@ -178,7 +222,6 @@ start_program:
     mov al, 16
     mov ch, 0
     mov dh, 0
-    mov cl, cl
     mov bx, 700h
     int 0x13
     jmp 700h
@@ -237,4 +280,3 @@ success_msg db 'Data written successfully!', 10, 13, 0
 buffer db 512 dup(0)
 text_to_write db 'Hello!', 0
 command_buffer db 256 dup(0)
-
