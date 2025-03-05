@@ -119,18 +119,6 @@ execute_command:
     cmp byte [si+3], 'd'
     je load_program
 
-    mov si, command_buffer
-    ; Проверка команды "clock"
-    mov di, clock_str
-    call compare_strings
-    je start_clock
-
-    mov si, command_buffer
-    ; Проверка команды "BASIC"
-    mov di, basic_str
-    call compare_strings
-    je start_BASIC
-
     call unknown_command
     ret
 
@@ -156,9 +144,6 @@ help_str db 'help', 0
 cls_str db 'cls', 0
 shut_str db 'shut', 0
 load_str db 'load', 0
-clock_str db 'clock', 0
-basic_str db 'BASIC', 0
-
 
 do_banner:
     call print_interface
