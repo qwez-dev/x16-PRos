@@ -89,7 +89,7 @@ dd if=YourProgram.bin of=disk_img/x16pros.img bs=512 seek=DiskSector conv=notrun
 ```
 
 You can read more about the software development process for x16-PRos on the project website:
-[x16-PRos web site]([https://google.com](https://x16-pros.netlify.app/))
+[x16-PRos web site](https://x16-pros.netlify.app/)
 
 ---
 
