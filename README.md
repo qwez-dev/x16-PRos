@@ -93,6 +93,23 @@ You can read more about the software development process for x16-PRos on the pro
 
 ---
 
+## 🛠 Compilation
+First, clone the reposytory:
+```bash
+gti clone https://github.com/PRoX2011/x16-PRos.git
+```
+To compile the project you will only need NASM. 
+Example comand for Ubuntu:
+```bash
+sudo apt install nasm
+```
+And finaly:
+```bash
+chmod +x build-linux.sh
+./build-linux.sh
+```
+---
+
 ## 🚀 Launchng
 
 To launch x16 PRos, use emulators such as **QEMU**,**Bochs** or online emulator like [v86](https://copy.sh/v86/). 
