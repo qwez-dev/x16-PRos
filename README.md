@@ -1,4 +1,4 @@
-# x16-PRos
+# <center>x16-PRos</center>
 
 ![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/1.png)
 
