@@ -6,14 +6,14 @@
   [![Version](https://img.shields.io/badge/version-0.2.6-blue.svg)](#)
   [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#)
 
-  <img src="https://github.com/PRoX2011/x16-PRos/raw/main/preview.gif" width="55%">
+  <img src="https://github.com/PRoX2011/x16-PRos/raw/main/preview.gif" width="65%">
   
 
   **x16-PRos**
  is a minimalistic 16-bit operating system written in NASM for x86 architecture. It supports a text interface, loading programs from disk, and basic 
  system functions such as displaying CPU information, time, and date.
  
- <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/1.png" width="65%">
+ <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/1.png" width="75%">
  
  ---
 
