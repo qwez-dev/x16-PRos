@@ -1,6 +1,6 @@
 # x16-PRos
 
-![screenshot](https://github.com/PRoX2011/x16-PRos/screenshots/1.png)
+![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/1.png)
 
 
 **x16-PRos**
