@@ -32,14 +32,19 @@ Basic x16 PRos software package includes:
 
 - **Notepad** for writing and saving texts to disk sectors
 ![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/3.png)
+
 - **Brainf** IDE for working with Brainf*ck language
 ![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/4.png)
+
 - **Barchart** program for creating simple diagrams
 ![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/5.png)
+
 - **Snake** classic Snake game
 ![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/6.png)
+
 - **Calc** help with simple mathematical calculations
 ![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/7.png)
+
 
 ---
   
