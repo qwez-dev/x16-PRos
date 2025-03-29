@@ -40,6 +40,7 @@ Basic x16 PRos software package includes:
 ![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/5.png)
 
 - **Snake** classic Snake game
+
 ![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/6.png)
 
 - **Calc** help with simple mathematical calculations
