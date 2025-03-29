@@ -1,5 +1,7 @@
 # <center>x16-PRos</center>
 
+[x16-PRos web site]([https://google.com](https://x16-pros.netlify.app/))
+
 ![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/1.png)
 
 
@@ -46,7 +48,6 @@ Basic x16 PRos software package includes:
 - **Calc** help with simple mathematical calculations
 ![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/7.png)
 
-
 ---
   
 ## Adding programs
@@ -58,7 +59,7 @@ dd if=YourProgram.bin of=disk_img/x16pros.img bs=512 seek=DiskSector conv=notrun
 ```
 
 You can read more about the software development process for x16-PRos on the project website:
-[Web site](https://google.com)
+[x16-PRos web site]([https://google.com](https://x16-pros.netlify.app/))
 
 ---
 
