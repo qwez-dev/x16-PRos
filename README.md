@@ -1,6 +1,6 @@
 # <center>x16-PRos</center>
 
-[x16-PRos web site]([https://google.com](https://x16-pros.netlify.app/))
+[x16-PRos web site](https://x16-pros.netlify.app/)
 
 ![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/1.png)
 
