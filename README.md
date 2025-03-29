@@ -1,4 +1,4 @@
-# x16-PRos
+<h1 style="text-align: center;">x16-PRos</h1>
 
 ![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/1.png)
 
