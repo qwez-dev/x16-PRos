@@ -1,16 +1,26 @@
-# <center>x16-PRos</center>
+<div align="center">
+ 
+  <h1>x16-PRos operating system</h1>
 
-[x16-PRos web site](https://x16-pros.netlify.app/)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
+  [![Version](https://img.shields.io/badge/version-0.2.6-blue.svg)](#)
+  [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#)
 
-![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/1.png)
+  **x16-PRos**
+ is a minimalistic 16-bit operating system written in NASM for x86 architecture. It supports a text interface, loading programs from disk, and basic 
+ system functions such as displaying CPU information, time, and date.
 
+  ![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/1.png)
 
-**x16-PRos**
- is a minimalistic 16-bit operating system written in NASM for x86 architecture. It supports a text interface, loading programs from disk, and basic system functions such as displaying CPU information, time, and date.
+<a href="https://x16-pros.netlify.app/">
+  <img src="https://img.shields.io/badge/x16%20PRos-web%20site-blue.svg?style=for-the-badge&logoWidth=40&labelWidth=100&fontSize=20" height="50">
+</a>
+  
+</div>
 
 ---
 
-## Supported commands in x16 PRos terminal
+## 📋 Supported commands in x16 PRos terminal
 - **help** display list of commands
 - **info** brief system information
 - **cls** clear screen
@@ -28,29 +38,49 @@
 
 ---
 
-## x16 PRos Software Package
+## 📦 x16 PRos Software Package
 
 Basic x16 PRos software package includes:
 
-- **Notepad** for writing and saving texts to disk sectors
-![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/3.png)
-
-- **Brainf** IDE for working with Brainf*ck language
-![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/4.png)
-
-- **Barchart** program for creating simple diagrams
-![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/5.png)
-
-- **Snake** classic Snake game
-
-![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/6.png)
-
-- **Calc** help with simple mathematical calculations
-![screenshot](https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/7.png)
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <strong>Notepad</strong><br>
+        <em>for writing and saving texts to disk sectors</em><br>
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/3.png" width="85%">
+      </td>
+      <td align="center">
+        <strong>Brainf IDE</strong><br>
+        <em>for working with Brainf*ck language</em><br>
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/4.png" width="85%">
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <strong>Barchart</strong><br>
+        <em>program for creating simple diagrams</em><br>
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/5.png" width="85%">
+      </td>
+      <td align="center">
+        <strong>Snake</strong><br>
+        <em>classic Snake game</em><br>
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/6.png" width="95%">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <strong>Calc</strong><br>
+        <em>help with simple mathematical calculations</em><br>
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/7.png" width="57.5%">
+      </td>
+    </tr>
+  </table>
+</div>
 
 ---
   
-## Adding programs
+## 🛠 Adding programs
 x16 PRos includes a small set of built-in programs. You can add your own program to the system image and then run it using the load command, specifying the disk sector number where you wrote the program as an argument.
 
 Here's how you can add a program:
@@ -63,7 +93,7 @@ You can read more about the software development process for x16-PRos on the pro
 
 ---
 
-## Launchng
+## 🚀 Launchng
 
 To launch x16 PRos, use emulators such as **QEMU**,**Bochs** or online emulator like [v86](https://copy.sh/v86/). 
 Example command for **QEMU**:
@@ -76,7 +106,7 @@ If you still want to run x16-PRos on a UEFI PC, you will need to enable "CSM sup
 
 ---
 
-## x16-PRos Developers
+## 👨‍💻 x16-PRos Developers
 
 - **PRoX (Faddey Kabanov)** lead developer. Creator of the kernel, command interpreter, writer, brainf, snake programs.
 - **Loxsete** developer of the barchart program.
@@ -84,7 +114,7 @@ If you still want to run x16-PRos on a UEFI PC, you will need to enable "CSM sup
 
 ---
 
-## Contribute to the Project
+## 🤝 Contribute to the Project
 
 If you want to contribute to the development of x16 PRos, you can:
 
