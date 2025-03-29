@@ -101,7 +101,7 @@ You can read more about the software development process for x16-PRos on the pro
 ## 🛠 Compilation
 First, clone the reposytory:
 ```bash
-gti clone https://github.com/PRoX2011/x16-PRos.git
+git clone https://github.com/PRoX2011/x16-PRos.git
 ```
 To compile the project you will only need NASM. 
 Example comand for Ubuntu:
