@@ -128,6 +128,37 @@ If you still want to run x16-PRos on a UEFI PC, you will need to enable "CSM sup
 
 ---
 
+## ⚙ Running x16-PRos on windows
+
+### Installation Steps
+
+1. Open PowerShell as Administrator and run:
+```powershell
+winget install nasm
+winget install qemu
+```
+
+2. Add NASM and QEMU to System Path by running:
+```powershell
+setx PATH "%PATH%;C:\Program Files\NASM;C:\Program Files\qemu"
+```
+
+3. Reboot your PC for the PATH changes to take effect.
+
+4. Run the build script:
+```batch
+build-windows.bat
+```
+
+**Note**: Make sure to restart your terminal or IDE after modifying the PATH variable.
+
+### Troubleshooting
+- If commands are not recognized, verify the installation paths
+- Ensure PowerShell was run as Administrator during installation
+- Check if PATH was updated correctly by running `echo %PATH%`
+
+---
+
 ## 👨‍💻 x16-PRos Developers
 
 - **PRoX (Faddey Kabanov)** lead developer. Creator of the kernel, command interpreter, writer, brainf, snake programs.
