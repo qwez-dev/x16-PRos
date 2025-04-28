@@ -180,3 +180,6 @@ The project is distributed under the **MIT** license. You are free to use, modif
 
 ---
 
+<a href="https://www.donationalerts.com/r/proxdev">
+  <img src="https://img.shields.io/badge/Support%20me-blue.svg?style=for-the-badge&logoWidth=40&labelWidth=100&fontSize=20" height="35">
+</a>
