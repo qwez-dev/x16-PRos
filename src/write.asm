@@ -11,6 +11,11 @@ start:
     mov ax, 0x03
     int 0x10
 
+    mov ah, 0x01
+    mov ch, 0x00
+    mov cl, 0x07
+    int 0x10
+
     mov dl, 0
     mov dh, 24
     call set_cursor_pos
@@ -43,7 +48,7 @@ load_text:
     mov es, ax
     mov bx, string
     mov ch, 0
-    mov cl, 11
+    mov cl, 13
     mov dh, 0
     mov dl, 80h
     mov al, 01h
@@ -109,7 +114,7 @@ save_text:
     mov ah, 03h
     mov al, 1
     mov ch, 0
-    mov cl, 11
+    mov cl, 13
     mov dh, 0
     mov dl, 80h
     mov bx, string

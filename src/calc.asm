@@ -242,4 +242,3 @@ input_buffer db 6 dup(0)
 num1 resw 1
 num2 resw 1
 result_str db 7 dup(0)
-
