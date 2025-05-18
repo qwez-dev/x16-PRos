@@ -3,7 +3,7 @@
   <h1>x16-PRos operating system</h1>
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
-  [![Version](https://img.shields.io/badge/version-0.2.6-blue.svg)](#)
+  [![Version](https://img.shields.io/badge/version-0.3.7-blue.svg)](#)
   [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#)
 
   <img src="https://github.com/PRoX2011/x16-PRos/raw/main/preview.gif" width="65%">
@@ -34,12 +34,19 @@
 - **date** display date
 - **time** show time (UTC)
 - **CPU** CPU information
+- **disk-i** disk information
 - **load** load program from disk sector (0000x800h)
 - **writer** start writer program
 - **brainf** start brainf interpreter
 - **barchart** start barchart program
 - **snake** start Snake game
 - **calc** start calculator program
+- **disk-tools** start disk-tools program
+- **BASIC** start micro-BASIC interpreter
+- **memory** start memory viwer program
+- **mine** start cminesweeper game
+- **piano** start piano program
+- **space** start space arcade game
 
 ---
 
@@ -78,6 +85,42 @@ Basic x16 PRos software package includes:
         <strong>Calc</strong><br>
         <em>help with simple mathematical calculations</em><br>
         <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/7.png" width="57.5%">
+      </td>
+    </tr>
+   <tr>
+      <td align="center">
+        <strong>disk-tools</strong><br>
+        <em>to erase programs from disk sectors</em><br>
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/8.png" width="85%">
+      </td>
+      <td align="center">
+        <strong>BASIC</strong><br>
+        <em>Micro-BASIC programming language interpreter</em><br>
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/9.png" width="85%">
+      </td>
+    </tr>
+   <tr>
+      <td align="center">
+        <strong>memory</strong><br>
+        <em>to view memory in real time</em><br>
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/10.png" width="85%">
+      </td>
+      <td align="center">
+        <strong>mine</strong><br>
+        <em>classic minesweeper game</em><br>
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/11.png" width="85%">
+      </td>
+    </tr>
+   <tr>
+      <td align="center">
+        <strong>piano</strong><br>
+        <em>to play imple melodies using PC Speaker</em><br>
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/12.png" width="85%">
+      </td>
+      <td align="center">
+        <strong>space</strong><br>
+        <em>space arcade game</em><br>
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/13.png" width="85%">
       </td>
     </tr>
   </table>
@@ -164,6 +207,7 @@ build-windows.bat
 - **PRoX (Faddey Kabanov)** lead developer. Creator of the kernel, command interpreter, writer, brainf, snake programs.
 - **Loxsete** developer of the barchart program.
 - **Saeta** developer of the calculation logic in the program "Calculator".
+- **Qwez** developer of the "space arcade" game.
 
 ---
 
