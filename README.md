@@ -17,9 +17,16 @@
  
  ---
 
-<a href="https://x16-pros.netlify.app/">
+<div align="center">
+ <a href="https://x16-pros.netlify.app/">
   <img src="https://img.shields.io/badge/x16%20PRos-web%20site-blue.svg?style=for-the-badge&logoWidth=40&labelWidth=100&fontSize=20" height="50">
 </a>
+ <br>
+<a href="https://github.com/PRoX2011/programs4pros/">
+  <img src="https://img.shields.io/badge/Programs%20for%20PRos-red.svg?style=for-the-badge&logoWidth=40&labelWidth=100&fontSize=20" height="50">
+</a>
+</div>
+
   
 </div>
 
@@ -163,7 +170,7 @@ chmod +x build-linux.sh
 To launch x16 PRos, use emulators such as **QEMU**,**Bochs** or online emulator like [v86](https://copy.sh/v86/). 
 Example command for **QEMU**:
 ```bash
-qemu-system-x86_64 -fda x16-PRos-disk-image.img
+qemu-system-i386 -audiodev pa,id=snd0 -machine pcspk-audiodev=snd0 -hda disk_img/x16pros.img
 ```
 You can also try running x16-PRos on a **real PC** (preferably with BIOS, not UEFI)
 
