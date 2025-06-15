@@ -6,14 +6,14 @@
   [![Version](https://img.shields.io/badge/version-0.4.9-blue.svg)](#)
   [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#)
 
-  <img src="https://github.com/PRoX2011/x16-PRos/raw/main/preview.gif" width="65%">
+  <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/assets/preview.gif" width="65%">
   
 
   **x16-PRos**
  is a minimalistic 16-bit operating system written in NASM for x86 architecture. It supports a text interface, loading programs from disk, and basic 
  system functions such as displaying CPU information, time, and date.
  
- <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/1.png" width="75%">
+ <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/1.png" width="75%">
  
  ---
 
@@ -62,62 +62,62 @@ Basic x16 PRos software package includes:
       <td align="center">
         <strong>Notepad</strong><br>
         <em>for writing and saving texts to disk sectors</em><br>
-        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/3.png" width="85%">
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/3.png" width="85%">
       </td>
       <td align="center">
         <strong>Brainf IDE</strong><br>
         <em>for working with Brainf*ck language</em><br>
-        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/4.png" width="85%">
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/4.png" width="85%">
       </td>
     </tr>
     <tr>
       <td align="center">
         <strong>Barchart</strong><br>
         <em>program for creating simple diagrams</em><br>
-        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/5.png" width="85%">
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/5.png" width="85%">
       </td>
       <td align="center">
         <strong>Snake</strong><br>
         <em>classic Snake game</em><br>
-        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/6.png" width="95%">
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/6.png" width="95%">
       </td>
     </tr>
     <tr>
       <td colspan="2" align="center">
         <strong>Calc</strong><br>
         <em>help with simple mathematical calculations</em><br>
-        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/7.png" width="57.5%">
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/7.png" width="57.5%">
       </td>
     </tr>
    <tr>
       <td align="center">
         <strong>memory</strong><br>
         <em>to view memory in real time</em><br>
-        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/10.png" width="85%">
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/10.png" width="85%">
       </td>
       <td align="center">
         <strong>mine</strong><br>
         <em>classic minesweeper game</em><br>
-        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/11.png" width="85%">
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/11.png" width="85%">
       </td>
     </tr>
    <tr>
       <td align="center">
         <strong>piano</strong><br>
         <em>to play imple melodies using PC Speaker</em><br>
-        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/12.png" width="85%">
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/12.png" width="85%">
       </td>
       <td align="center">
         <strong>space</strong><br>
         <em>space arcade game</em><br>
-        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/13.png" width="85%">
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/13.png" width="85%">
       </td>
     </tr>
    <tr>
     <td colspan="2" align="center">
         <strong>Percentages</strong><br>
         <em>percentages calculator</em><br>
-        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/14.png" width="57.5%">
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/14.png" width="57.5%">
       </td>
    </tr>
   </table>
@@ -133,7 +133,7 @@ Here's how you can add a program:
 mcopy -i disk_img/x16pros.img PROGRAM.BIN ::/
 ```
 
-Also, PRos has its own API for software developers. See **doc/API.md**
+Also, PRos has its own API for software developers. See **docs/API.md**
 
 You can read more about the software development process for x16-PRos on the project website:
 [x16-PRos website](https://x16-pros.netlify.app/)
