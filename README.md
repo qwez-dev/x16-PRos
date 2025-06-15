@@ -167,8 +167,9 @@ sudo apt install dosfstools
 And finally:
 
 ```bash
-chmod +x build-linux.sh
-./build-linux.sh
+chmod +x build.sh run.sh
+./build.sh
+./run.sh
 ```
 
 ---

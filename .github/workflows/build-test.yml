@@ -1,0 +1,41 @@
+name: Build and Test x16-PRos
+
+on:
+  push:
+    branches: [ "dev" ]
+  pull_request:
+    branches: [ "dev" ]
+
+jobs:
+  build:
+    name: Build x16-PRos
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y nasm mtools dosfstools qemu-system-x86
+
+      - name: Run build script
+        run: |
+          chmod +x build.sh
+          ./build.sh
+
+      - name: Check output files
+        run: |
+          if [ ! -f bin/BOOT.BIN ]; then echo "Missing BOOT.BIN"; exit 1; fi
+          if [ ! -f bin/KERNEL.BIN ]; then echo "Missing KERNEL.BIN"; exit 1; fi
+          if [ ! -f disk_img/x16pros.img ]; then echo "Missing disk image"; exit 1; fi
+          echo "All required files were built."
+
+      - name: Run QEMU test (optional)
+        run: |
+          qemu-system-x86_64 -drive format=raw,file=disk_img/x16pros.img -nographic -serial stdio &
+          sleep 5  # wait a bit for boot
+          pkill qemu-system-x86_64 || true
+        env:
+          DISPLAY: ":99.0"
