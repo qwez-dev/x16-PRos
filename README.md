@@ -3,7 +3,7 @@
   <h1>x16-PRos operating system</h1>
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
-  [![Version](https://img.shields.io/badge/version-0.3.7-blue.svg)](#)
+  [![Version](https://img.shields.io/badge/version-0.4.9-blue.svg)](#)
   [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#)
 
   <img src="https://github.com/PRoX2011/x16-PRos/raw/main/preview.gif" width="65%">
