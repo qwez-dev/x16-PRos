@@ -115,8 +115,8 @@ Basic x16 PRos software package includes:
     </tr>
    <tr>
     <td colspan="2" align="center">
-        <strong>Procentages</strong><br>
-        <em>procentages calculator</em><br>
+        <strong>Percentages</strong><br>
+        <em>percentages calculator</em><br>
         <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/14.png" width="57.5%">
       </td>
    </tr>
@@ -136,31 +136,31 @@ mcopy -i disk_img/x16pros.img PROGRAM.BIN ::/
 Also, PRos has its own API for software developers. See **doc/API.md**
 
 You can read more about the software development process for x16-PRos on the project website:
-[x16-PRos web site](https://x16-pros.netlify.app/)
+[x16-PRos website](https://x16-pros.netlify.app/)
 
 
 ---
 
 ## 🛠 Compilation
-First, clone the reposytory:
+First, clone the repository:
 ```bash
 git clone https://github.com/PRoX2011/x16-PRos.git
 ```
-To compile the project you will need NASM and some other pakages. 
-Example comand for Ubuntu:
+To compile the project, you will need NASM and some other pakages. 
+Example command for Ubuntu:
 ```bash
 sudo apt install nasm
 sudo apt install mtools
 sudo apt install dosfstools
 ```
-And finaly:
+And finally:
 ```bash
 chmod +x build-linux.sh
 ./build-linux.sh
 ```
 ---
 
-## 🚀 Launchng
+## 🚀 Launching
 
 To launch x16 PRos, use emulators such as **QEMU**,**Bochs** or online emulator like [v86](https://copy.sh/v86/). 
 Example command for **QEMU**:
@@ -208,9 +208,9 @@ build-windows.bat
 
 - **PRoX (Faddey Kabanov)** lead developer. Creator of the kernel, command interpreter, writer, brainf, snake programs.
 - **Loxsete** developer of the barchart program.
-- **Saeta** developer of the calculation logic in the program "Calculator".
+- **Saeta** developer of the calculation logic in the program "Calculator."
 - **Qwez** developer of the "space arcade" game.
-- **Gabriel** developer of "Procentages" program.
+- **Gabriel** developer of "Percentages" program.
 
 ---
 
