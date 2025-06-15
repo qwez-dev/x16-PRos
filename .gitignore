@@ -1,0 +1,8 @@
+### Assembler template
+*.exe
+*.o
+*.obj
+*.bc
+
+bin/
+disk_img/
