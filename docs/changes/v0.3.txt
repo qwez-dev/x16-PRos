@@ -89,7 +89,7 @@ FF - Read error
 ========================================================================================
 
 7. Minor changes:
-1) The cursor has been changed in the writer program
+1) The cursor has been changed in writer program
 2) Graphic bugs have been fixed in the programs:
 1. writer
 2. brainf

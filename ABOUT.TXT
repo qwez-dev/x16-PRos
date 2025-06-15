@@ -20,4 +20,4 @@ PRos includes a standard set of programs:
 7)  PIANO.BIN  - a simple piano
 8)  SNAKE.BIN  - a snake game. A reboot is also needed.
 9)  SPACE.BIN  - an arcade game by Qwez
-10) PROCENTC   - a simple procentages calculator by Gabriel 
+10) PROCENTC   - a simple percentages calculator by Gabriel

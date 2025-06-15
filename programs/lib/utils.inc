@@ -37,8 +37,8 @@ convert_to_number:
 .done_convert:
     mov [bx], cx  
     ret
-	
-	
+
+
 ; Number To String
 ; ax - number
 ; di - buffer [6 bytes]
@@ -80,5 +80,5 @@ set_cursor_pos:
     xor bh, bh
     int 10h
     ret
-	
+
 %endif

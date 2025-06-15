@@ -91,7 +91,7 @@
 =======================================================================================
 
 9. Programs bug fixes:
-1) Space archade graphics fixes.
+1) Space arcade graphics fixes.
 2) Writer now supports multiline text
 
 =======================================================================================
