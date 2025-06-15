@@ -152,6 +152,7 @@ First, clone the repository:
 
 ```bash
 git clone https://github.com/PRoX2011/x16-PRos.git
+cd x16-PRos
 ```
 
 To compile the project, you will need NASM and some other pakages.

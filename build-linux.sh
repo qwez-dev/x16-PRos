@@ -22,6 +22,8 @@ check_error() {
     fi
 }
 
+mkdir bin
+mkdir disk_img
 
 print_msg "$NC" ""
 
