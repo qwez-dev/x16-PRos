@@ -28,7 +28,7 @@ print_newline:
     mov al, 0x0A
     int 0x10
     ret
-	
+
 ; Green text
 ; si - string
 print_string_green:
@@ -73,7 +73,7 @@ print_string_red:
     jmp .print_char
 .done:
     ret
-	
+
 ; Scan String From Input
 ; si - buffer
 ; bx - max count

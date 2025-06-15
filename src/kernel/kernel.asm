@@ -24,10 +24,10 @@ start:
     cld
 
     mov ax, 2000h
-	mov ds, ax
-	mov es, ax
-	mov fs, ax
-	mov gs, ax
+    mov ds, ax
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
 
     ; Set up frequency (1193180 Hz / 1193 = ~1000 Hz)
     mov al, 0xB6

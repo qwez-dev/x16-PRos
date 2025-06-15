@@ -1,21 +1,22 @@
 <div align="center">
- 
+
   <h1>x16-PRos operating system</h1>
 
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
-  [![Version](https://img.shields.io/badge/version-0.4.9-blue.svg)](#)
-  [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
+[![Version](https://img.shields.io/badge/version-0.4.9-blue.svg)](#)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#)
 
   <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/assets/preview.gif" width="65%">
-  
 
-  **x16-PRos**
- is a minimalistic 16-bit operating system written in NASM for x86 architecture. It supports a text interface, loading programs from disk, and basic 
- system functions such as displaying CPU information, time, and date.
- 
+
+**x16-PRos**
+is a minimalistic 16-bit operating system written in NASM for x86 architecture. It supports a text interface, loading
+programs from disk, and basic
+system functions such as displaying CPU information, time, and date.
+
  <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/1.png" width="75%">
  
- ---
+---
 
 <div align="center">
  <a href="https://x16-pros.netlify.app/">
@@ -27,12 +28,13 @@
 </a>
 </div>
 
-  
+
 </div>
 
 ---
 
 ## 📋 Supported commands in x16 PRos terminal
+
 - **help** display list of commands
 - **info** brief system information
 - **cls** clear screen
@@ -124,11 +126,14 @@ Basic x16 PRos software package includes:
 </div>
 
 ---
-  
+
 ## 🛠 Adding programs
-x16 PRos includes a small set of built-in programs. You can add your own program to the system image, and then run it by entering the filename of your program in the terminal.
+
+x16 PRos includes a small set of built-in programs. You can add your own program to the system image, and then run it by
+entering the filename of your program in the terminal.
 
 Here's how you can add a program:
+
 ```bash
 mcopy -i disk_img/x16pros.img PROGRAM.BIN ::/
 ```
@@ -142,34 +147,44 @@ You can read more about the software development process for x16-PRos on the pro
 ---
 
 ## 🛠 Compilation
+
 First, clone the repository:
+
 ```bash
 git clone https://github.com/PRoX2011/x16-PRos.git
 ```
-To compile the project, you will need NASM and some other pakages. 
+
+To compile the project, you will need NASM and some other pakages.
 Example command for Ubuntu:
+
 ```bash
 sudo apt install nasm
 sudo apt install mtools
 sudo apt install dosfstools
 ```
+
 And finally:
+
 ```bash
 chmod +x build-linux.sh
 ./build-linux.sh
 ```
+
 ---
 
 ## 🚀 Launching
 
-To launch x16 PRos, use emulators such as **QEMU**,**Bochs** or online emulator like [v86](https://copy.sh/v86/). 
+To launch x16 PRos, use emulators such as **QEMU**,**Bochs** or online emulator like [v86](https://copy.sh/v86/).
 Example command for **QEMU**:
+
 ```bash
 qemu-system-i386 -audiodev pa,id=snd0 -machine pcspk-audiodev=snd0 -hda disk_img/x16pros.img
 ```
+
 You can also try running x16-PRos on a **real PC** (preferably with BIOS, not UEFI)
 
-If you still want to run x16-PRos on a UEFI PC, you will need to enable "CSM support" in your BIOS. It may be called slightly differently.
+If you still want to run x16-PRos on a UEFI PC, you will need to enable "CSM support" in your BIOS. It may be called
+slightly differently.
 
 ---
 
@@ -178,12 +193,14 @@ If you still want to run x16-PRos on a UEFI PC, you will need to enable "CSM sup
 ### Installation Steps
 
 1. Open PowerShell as Administrator and run:
+
 ```powershell
 winget install nasm
 winget install qemu
 ```
 
 2. Add NASM and QEMU to System Path by running:
+
 ```powershell
 setx PATH "%PATH%;C:\Program Files\NASM;C:\Program Files\qemu"
 ```
@@ -191,6 +208,7 @@ setx PATH "%PATH%;C:\Program Files\NASM;C:\Program Files\qemu"
 3. Reboot your PC for the PATH changes to take effect.
 
 4. Run the build script:
+
 ```batch
 build-windows.bat
 ```
@@ -198,6 +216,7 @@ build-windows.bat
 **Note**: Make sure to restart your terminal or IDE after modifying the PATH variable.
 
 ### Troubleshooting
+
 - If commands are not recognized, verify the installation paths
 - Ensure PowerShell was run as Administrator during installation
 - Check if PATH was updated correctly by running `echo %PATH%`
