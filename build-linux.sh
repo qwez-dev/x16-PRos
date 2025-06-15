@@ -1,51 +1,125 @@
+# ==================================================================
+# x16-PRos -- The x16-PRos build script for Linux
+# Copyright (C) 2025 PRoX2011
+# ==================================================================
+
+RED='\033[31m'
 GREEN='\033[32m'
+YELLOW='\033[33m'
+BLUE='\033[34m'
 NC='\033[0m'
 
-LOGO='
-██╗  ██╗ ██╗ ██████╗       ██████╗ ██████╗  ██████╗ ███████╗
-╚██╗██╔╝███║██╔════╝       ██╔══██╗██╔══██╗██╔═══██╗██╔════╝
- ╚███╔╝ ╚██║███████╗ █████╗██████╔╝██████╔╝██║   ██║███████╗
- ██╔██╗  ██║██╔═══██╗╚════╝██╔═══╝ ██╔══██╗██║   ██║╚════██║
-██╔╝ ██╗ ██║╚██████╔╝      ██║     ██║  ██║╚██████╔╝███████║
-╚═╝  ╚═╝ ╚═╝ ╚═════╝       ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
-____________________________________________________________
-'
+print_msg() {
+    local color="$1"
+    local message="$2"
+    echo -e "${color}${message}${NC}"
+}
 
-echo -e "${GREEN}Compiling the bootloader${NC}"
-nasm -f bin src/boot.asm -o bin/boot.bin
+check_error() {
+    if [ $? -ne 0 ]; then
+        print_msg "$RED" "Error: $1"
+        exit 1
+    fi
+}
 
-echo -e "${GREEN}Compiling the kernel and programs${NC}"
-nasm -f bin src/kernel.asm -o bin/kernel.bin
-nasm -f bin src/write.asm -o bin/write.bin
-nasm -f bin src/brainf.asm -o bin/brainf.bin
-nasm -f bin src/barchart.asm -o bin/barchart.bin
-nasm -f bin src/snake.asm -o bin/snake.bin
-nasm -f bin src/calc.asm -o bin/calc.bin
-nasm -f bin src/disk-tools.asm -o bin/disk-tools.bin
-nasm -f bin src/mine.asm -o bin/mine.bin
-nasm -f bin src/memory.asm -o bin/memory.bin
-nasm -f bin src/space.asm -o bin/space.bin
-nasm -f bin src/piano.asm -o bin/piano.bin
 
-echo -e "${GREEN}Creating a disk image${NC}"
-dd if=/dev/zero of=disk_img/x16pros.img bs=512 count=50
+print_msg "$NC" ""
 
-dd if=bin/boot.bin of=disk_img/x16pros.img conv=notrunc
-dd if=bin/kernel.bin of=disk_img/x16pros.img bs=512 seek=1 conv=notrunc
-dd if=bin/write.bin of=disk_img/x16pros.img bs=512 seek=10 conv=notrunc 
-dd if=bin/brainf.bin of=disk_img/x16pros.img bs=512 seek=13 conv=notrunc 
-dd if=bin/barchart.bin of=disk_img/x16pros.img bs=512 seek=16 conv=notrunc
-dd if=bin/snake.bin of=disk_img/x16pros.img bs=512 seek=17 conv=notrunc
-dd if=bin/calc.bin of=disk_img/x16pros.img bs=512 seek=19 conv=notrunc
-dd if=bin/disk-tools.bin of=disk_img/x16pros.img bs=512 seek=21 conv=notrunc
-dd if=bin/ILM.BIN of=disk_img/x16pros.img bs=512 seek=26 conv=notrunc
-dd if=bin/mine.bin of=disk_img/x16pros.img bs=512 seek=35 conv=notrunc
-dd if=bin/memory.bin of=disk_img/x16pros.img bs=512 seek=36 conv=notrunc
-dd if=bin/space.bin of=disk_img/x16pros.img bs=512 seek=37 conv=notrunc
-dd if=bin/piano.bin of=disk_img/x16pros.img bs=512 seek=40 conv=notrunc
-echo -e "${GREEN}Done.${NC}"
+print_msg "$GREEN" "========== Starting x16-PRos build... =========="
 
-echo -e "${GREEN}${LOGO}${NC}"
+print_msg "$NC" ""
 
-echo -e "${GREEN}Launching QEMU...${NC}"
-qemu-system-i386 -audiodev pa,id=snd0 -machine pcspk-audiodev=snd0 -hda disk_img/x16pros.img
+print_msg "$BLUE" "Compiling bootloader (boot.asm)..."
+nasm -f bin src/bootloader/boot.asm -o bin/BOOT.BIN
+check_error "Bootloader compilation failed"
+
+print_msg "$BLUE" "Compiling kernel (kernel.asm)..."
+nasm -f bin src/kernel/kernel.asm -o bin/KERNEL.BIN
+check_error "Kernel compilation failed"
+
+print_msg "$BLUE" "Creating disk image..."
+dd if=/dev/zero of=disk_img/x16pros.img bs=512 count=2880
+check_error "Disk image creation failed"
+
+print_msg "$BLUE" "Formatting disk image..."
+mkfs.fat -F 12 disk_img/x16pros.img
+check_error "Disk formatting failed"
+
+print_msg "$BLUE" "Writing bootloader to disk..."
+dd if=bin/BOOT.BIN of=disk_img/x16pros.img conv=notrunc
+check_error "Bootloader writing failed"
+
+print_msg "$BLUE" "Copying kernel to disk..."
+mcopy -i disk_img/x16pros.img bin/KERNEL.BIN ::/
+check_error "Kernel copy failed"
+
+print_msg "$NC" ""
+
+print_msg "$BLUE" "Compiling programs pakage..."
+# ---------------- PROGRAMS -------------------
+
+# Hello, PRos
+nasm -f bin programs/hello.asm -o bin/HELLO.BIN
+mcopy -i disk_img/x16pros.img bin/HELLO.BIN ::/
+
+# Writer
+nasm -f bin programs/write.asm -o bin/WRITER.BIN
+mcopy -i disk_img/x16pros.img bin/WRITER.BIN ::/
+
+# Barchart
+nasm -f bin programs/barchart.asm -o bin/BCHART.BIN
+mcopy -i disk_img/x16pros.img bin/BCHART.BIN ::/
+
+# Brainf
+nasm -f bin programs/brainf.asm -o bin/BRAINF.BIN
+mcopy -i disk_img/x16pros.img bin/BRAINF.BIN ::/
+
+# Calc
+nasm -f bin programs/calc.asm -o bin/CALC.BIN
+mcopy -i disk_img/x16pros.img bin/CALC.BIN ::/
+
+# Memory
+nasm -f bin programs/memory.asm -o bin/MEMORY.BIN
+mcopy -i disk_img/x16pros.img bin/MEMORY.BIN ::/
+
+# Mine
+nasm -f bin programs/mine.asm -o bin/MINE.BIN
+mcopy -i disk_img/x16pros.img bin/MINE.BIN ::/
+
+# Piano
+nasm -f bin programs/piano.asm -o bin/PIANO.BIN
+mcopy -i disk_img/x16pros.img bin/PIANO.BIN ::/
+
+# Snake
+nasm -f bin programs/snake.asm -o bin/SNAKE.BIN
+mcopy -i disk_img/x16pros.img bin/SNAKE.BIN ::/
+
+# Space
+nasm -f bin programs/space.asm -o bin/SPACE.BIN
+mcopy -i disk_img/x16pros.img bin/SPACE.BIN ::/
+
+# Procentages
+nasm -f bin programs/procentc.asm -o bin/PROCENTC.BIN
+mcopy -i disk_img/x16pros.img bin/PROCENTC.BIN ::/
+
+# ----------------------------------------------
+
+
+# ---------------- TEXT FILES ----------------
+
+mcopy -i disk_img/x16pros.img LICENSE.TXT ::/
+mcopy -i disk_img/x16pros.img ABOUT.TXT ::/
+
+# --------------------------------------------
+
+print_msg "$NC" ""
+
+print_msg "$YELLOW" "Disk contents:"
+mdir -i disk_img/x16pros.img ::/
+
+print_msg "$NC" ""
+print_msg "$GREEN" "========== Build completed successfully! =========="
+
+print_msg "$NC" ""
+print_msg "$GREEN" "Starting emulator..."
+qemu-system-x86_64 -audiodev pa,id=snd0 -machine pcspk-audiodev=snd0 -fda disk_img/x16pros.img
