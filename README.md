@@ -41,19 +41,14 @@
 - **date** display date
 - **time** show time (UTC)
 - **CPU** CPU information
-- **disk-i** disk information
-- **load** load program from disk sector (0000x800h)
-- **writer** start writer program
-- **brainf** start brainf interpreter
-- **barchart** start barchart program
-- **snake** start Snake game
-- **calc** start calculator program
-- **disk-tools** start disk-tools program
-- **BASIC** start micro-BASIC interpreter
-- **memory** start memory viwer program
-- **mine** start cminesweeper game
-- **piano** start piano program
-- **space** start space arcade game
+- **dir** List files on disk
+- **cat <filename>** Display file contents
+- **del <filename>** Delete a file
+- **copy <filename1> <filename2>** Copy a file
+- **ren <filename1> <filename2>** Rename a file
+- **size <filename>** Get file size
+- **touch <filename>** Create an empty file
+- **write <filename> <text>** Write text to a file
 
 ---
 
@@ -96,18 +91,6 @@ Basic x16 PRos software package includes:
     </tr>
    <tr>
       <td align="center">
-        <strong>disk-tools</strong><br>
-        <em>to erase programs from disk sectors</em><br>
-        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/8.png" width="85%">
-      </td>
-      <td align="center">
-        <strong>BASIC</strong><br>
-        <em>Micro-BASIC programming language interpreter</em><br>
-        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/9.png" width="85%">
-      </td>
-    </tr>
-   <tr>
-      <td align="center">
         <strong>memory</strong><br>
         <em>to view memory in real time</em><br>
         <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/10.png" width="85%">
@@ -130,21 +113,31 @@ Basic x16 PRos software package includes:
         <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/13.png" width="85%">
       </td>
     </tr>
+   <tr>
+    <td colspan="2" align="center">
+        <strong>Procentages</strong><br>
+        <em>procentages calculator</em><br>
+        <img src="https://github.com/PRoX2011/x16-PRos/raw/main/screenshots/14.png" width="57.5%">
+      </td>
+   </tr>
   </table>
 </div>
 
 ---
   
 ## 🛠 Adding programs
-x16 PRos includes a small set of built-in programs. You can add your own program to the system image and then run it using the load command, specifying the disk sector number where you wrote the program as an argument.
+x16 PRos includes a small set of built-in programs. You can add your own program to the system image, and then run it by entering the filename of your program in the terminal.
 
 Here's how you can add a program:
 ```bash
-dd if=YourProgram.bin of=disk_img/x16pros.img bs=512 seek=DiskSector conv=notrunc
+mcopy -i disk_img/x16pros.img PROGRAM.BIN ::/
 ```
+
+Also, PRos has its own API for software developers. See **doc/API.md**
 
 You can read more about the software development process for x16-PRos on the project website:
 [x16-PRos web site](https://x16-pros.netlify.app/)
+
 
 ---
 
@@ -153,10 +146,12 @@ First, clone the reposytory:
 ```bash
 git clone https://github.com/PRoX2011/x16-PRos.git
 ```
-To compile the project you will only need NASM. 
+To compile the project you will need NASM and some other pakages. 
 Example comand for Ubuntu:
 ```bash
 sudo apt install nasm
+sudo apt install mtools
+sudo apt install dosfstools
 ```
 And finaly:
 ```bash
@@ -215,6 +210,7 @@ build-windows.bat
 - **Loxsete** developer of the barchart program.
 - **Saeta** developer of the calculation logic in the program "Calculator".
 - **Qwez** developer of the "space arcade" game.
+- **Gabriel** developer of "Procentages" program.
 
 ---
 
