@@ -167,9 +167,8 @@ sudo apt install dosfstools
 And finally:
 
 ```bash
-chmod +x build.sh run.sh
+chmod +x build.sh
 ./build.sh
-./run.sh
 ```
 
 ---
@@ -181,6 +180,14 @@ Example command for **QEMU**:
 
 ```bash
 qemu-system-i386 -audiodev pa,id=snd0 -machine pcspk-audiodev=snd0 -hda disk_img/x16pros.img
+```
+
+or
+
+```bash
+# qemu-system-x86
+chmod +x run.sh
+./run.sh
 ```
 
 You can also try running x16-PRos on a **real PC** (preferably with BIOS, not UEFI)
