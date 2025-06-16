@@ -22,6 +22,8 @@ check_error() {
     fi
 }
 
+mkdir bin
+mkdir disk_img
 
 print_msg "$NC" ""
 
@@ -119,7 +121,3 @@ mdir -i disk_img/x16pros.img ::/
 
 print_msg "$NC" ""
 print_msg "$GREEN" "========== Build completed successfully! =========="
-
-print_msg "$NC" ""
-print_msg "$GREEN" "Starting emulator..."
-qemu-system-x86_64 -audiodev pa,id=snd0 -machine pcspk-audiodev=snd0 -fda disk_img/x16pros.img

@@ -152,6 +152,7 @@ First, clone the repository:
 
 ```bash
 git clone https://github.com/PRoX2011/x16-PRos.git
+cd x16-PRos
 ```
 
 To compile the project, you will need NASM and some other pakages.
@@ -166,8 +167,8 @@ sudo apt install dosfstools
 And finally:
 
 ```bash
-chmod +x build-linux.sh
-./build-linux.sh
+chmod +x build.sh
+./build.sh
 ```
 
 ---
@@ -179,6 +180,14 @@ Example command for **QEMU**:
 
 ```bash
 qemu-system-i386 -audiodev pa,id=snd0 -machine pcspk-audiodev=snd0 -hda disk_img/x16pros.img
+```
+
+or
+
+```bash
+# qemu-system-x86
+chmod +x run.sh
+./run.sh
 ```
 
 You can also try running x16-PRos on a **real PC** (preferably with BIOS, not UEFI)
