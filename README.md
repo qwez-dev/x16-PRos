@@ -251,7 +251,13 @@ If you want to contribute to the development of x16 PRos, you can:
 - Help with documentation by emailing us at prox.dev.code@gmail.com.
 - Develop new programs for the system.
 
-The project is distributed under the **MIT** license. You are free to use, modify and distribute the code.
+## License
+
+The project is distributed under the **MIT** License. This permissive free software license allows users to freely use, **modify**, **distribute**, and **sublicense** the code, with the only requirement **being the inclusion of the original copyright notice and license text**.
+
+The license also applies to **all programs and components created by the OS developer**, unless explicitly stated otherwise. This means that any software built by the original author and included in the OS inherits the same open and flexible licensing terms.
+
+For more details, refer to the full text of the MIT License (LICENSE.TXT).
 
 ---
 
