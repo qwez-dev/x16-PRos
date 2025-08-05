@@ -106,7 +106,7 @@ Basic x16 PRos software package includes:
    <tr>
       <td align="center">
         <strong>piano</strong><br>
-        <em>to play imple melodies using PC Speaker</em><br>
+        <em>to play simple melodies using PC Speaker</em><br>
         <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/12.png" width="85%">
       </td>
       <td align="center">
