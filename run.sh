@@ -17,4 +17,8 @@ print_msg() {
 
 print_msg "$NC" ""
 print_msg "$GREEN" "Starting emulator..."
-qemu-system-x86_64 -audiodev pa,id=snd0 -machine pcspk-audiodev=snd0 -fda disk_img/x16pros.img
+qemu-system-x86_64 \
+    -display gtk \
+    -audiodev pa,id=snd0 \
+    -machine pcspk-audiodev=snd0 \
+    -fda disk_img/x16pros.img
