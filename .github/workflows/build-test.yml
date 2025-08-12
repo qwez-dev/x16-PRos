@@ -2,10 +2,10 @@ name: Build and Test x16-PRos
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
+    branches:
+      - '**' 
+  pull_request:      
+  workflow_dispatch: 
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build x16-PRos
+    name: Build x16-PRos (Linux)
     runs-on: ubuntu-latest
     env:
       DEBIAN_FRONTEND: noninteractive
@@ -56,6 +56,53 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: x16pros-build-${{ github.run_number }}
+          name: x16pros-build-${{ github.run_number }}-linux
+          path: out/*
+          retention-days: 7
+
+  build-windows:
+    name: Build x16-PRos (Windows)
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup NASM
+        uses: ilammy/setup-nasm@v1
+
+      - name: Run build script (PowerShell)
+        shell: pwsh
+        run: |
+          powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1
+
+      - name: Check output files
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          if (!(Test-Path "bin/BOOT.BIN")) { throw "Missing bin/BOOT.BIN" }
+          if (!(Test-Path "bin/KERNEL.BIN")) { throw "Missing bin/KERNEL.BIN" }
+          if (!(Test-Path "disk_img/x16pros.img")) { throw "Missing disk_img/x16pros.img" }
+          "All required files were built."
+
+      - name: Prepare artifacts
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path out | Out-Null
+          Copy-Item -Force "disk_img/x16pros.img" "out/x16pros.img"
+          Copy-Item -Force "bin/BOOT.BIN" "out/BOOT.BIN"
+          Copy-Item -Force "bin/KERNEL.BIN" "out/KERNEL.BIN"
+          Push-Location out
+          Get-FileHash x16pros.img, BOOT.BIN, KERNEL.BIN -Algorithm SHA256 |
+            ForEach-Object { "$($_.Hash)  $([System.IO.Path]::GetFileName($_.Path))" } |
+            Set-Content -Encoding ASCII SHA256SUMS
+          Pop-Location
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: x16pros-build-${{ github.run_number }}-windows
           path: out/*
           retention-days: 7
