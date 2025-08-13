@@ -16,7 +16,7 @@ system functions such as displaying CPU information, time, and date.
 
  <img src="https://github.com/PRoX2011/x16-PRos/raw/main/docs/screenshots/1.png" width="75%">
  
----
+
 
 <div align="center">
  <a href="https://x16-pros.netlify.app/">
@@ -31,7 +31,7 @@ system functions such as displaying CPU information, time, and date.
 
 </div>
 
----
+
 
 ## 📋 Supported commands in x16 PRos terminal
 
@@ -52,7 +52,7 @@ system functions such as displaying CPU information, time, and date.
 - **touch <filename>** Create an empty file
 - **write <filename> <text>** Write text to a file
 
----
+
 
 ## 📦 x16 PRos Software Package
 
@@ -125,104 +125,80 @@ Basic x16 PRos software package includes:
   </table>
 </div>
 
----
+
 
 ## 🛠 Adding programs
 
 x16 PRos includes a small set of built-in programs. You can add your own program to the system image, and then run it by
 entering the filename of your program in the terminal.
 
-Here's how you can add a program:
+Here's how you can add a program via mtools:
 
-```bash
+````bash
 mcopy -i disk_img/x16pros.img PROGRAM.BIN ::/
-```
+````
 
-Also, PRos has its own API for software developers. See **docs/API.md**
+Also, PRos has its own API for software developers. See `docs/API.md`
 
 You can read more about the software development process for x16-PRos on the project website:
 [x16-PRos website](https://x16-pros.netlify.app/)
 
 
----
 
-## 🛠 Compilation
 
+
+## 🛠 Build
+
+### Prerequisites
+#### On Ubuntu/Debian:
+```bash
+sudo apt update
+sudo apt install -y nasm mtools dosfstools qemu-system-x86
+```
+#### On Windows:
+```powershell
+winget install nasm
+winget install qemu
+.\build.ps1
+```
+
+### Clone and build
 First, clone the repository:
-
 ```bash
 git clone https://github.com/PRoX2011/x16-PRos.git
 cd x16-PRos
 ```
-
-To compile the project, you will need NASM and some other pakages.
-Example command for Ubuntu:
-
-```bash
-sudo apt install nasm
-sudo apt install mtools
-sudo apt install dosfstools
-```
-
-And finally:
-
+Then build:
+- On Ubuntu/Debian:
 ```bash
 chmod +x build.sh
 ./build.sh
 ```
-
----
-
-## 🚀 Launching
-
-To launch x16 PRos, use emulators such as **QEMU**,**Bochs** or online emulator like [v86](https://copy.sh/v86/).
-Example command for **QEMU**:
-
-```bash
-qemu-system-i386 -audiodev pa,id=snd0 -machine pcspk-audiodev=snd0 -hda disk_img/x16pros.img
+- On Windows:
+```powershell
+winget install nasm
+winget install qemu
+.\build.ps1
 ```
 
-or
+## 🚀 Run
 
+### QEMU (Linux/macOS)
 ```bash
-# qemu-system-x86
+qemu-system-i386 -audiodev pa,id=snd0 -machine pcspk-audiodev=snd0 -hda x16pros.img
+```
+or:
+```bash
 chmod +x run.sh
 ./run.sh
 ```
 
-You can also try running x16-PRos on a **real PC** (preferably with BIOS, not UEFI)
-
-If you still want to run x16-PRos on a UEFI PC, you will need to enable "CSM support" in your BIOS. It may be called
-slightly differently.
-
----
-
-## ⚙ Running x16-PRos on windows
-
-### Installation Steps
-
-1. Open PowerShell as Administrator and run:
-
+### Windows (PowerShell)
 ```powershell
-winget install nasm
-winget install qemu
+.\run.ps1
 ```
 
-2. Add NASM and QEMU to System Path by running:
-
-```powershell
-setx PATH "%PATH%;C:\Program Files\NASM;C:\Program Files\qemu"
-```
-
-3. Reboot your PC for the PATH changes to take effect.
-
-4. Run the build script:
-
-```batch
-build-windows.bat
-```
-
-**Note**: Make sure to restart your terminal or IDE after modifying the PATH variable.
+Real hardware: works best on BIOS systems. On UEFI‑only machines enable CSM/Legacy Boot.
 
 ### Troubleshooting
 
@@ -230,7 +206,7 @@ build-windows.bat
 - Ensure PowerShell was run as Administrator during installation
 - Check if PATH was updated correctly by running `echo %PATH%`
 
----
+
 
 ## 👨‍💻 x16-PRos Developers
 
@@ -240,7 +216,7 @@ build-windows.bat
 - **Qwez** developer of the "space arcade" game.
 - **Gabriel** developer of "Percentages" program.
 
----
+
 
 ## 🤝 Contribute to the Project
 
@@ -259,7 +235,7 @@ The license also applies to **all programs and components created by the OS deve
 
 For more details, refer to the full text of the MIT License (LICENSE.TXT).
 
----
+
 
 <a href="https://www.donationalerts.com/r/proxdev">
   <img src="https://img.shields.io/badge/Support%20me-blue.svg?style=for-the-badge&logoWidth=40&labelWidth=100&fontSize=20" height="35">
